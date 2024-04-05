@@ -1,0 +1,24 @@
+.drop{
+    width: 0;
+    /* width: fit-content; */
+    overflow: hidden;
+    position: absolute;
+    top: 25%;
+    transition: width 0.5s ease;
+    background-color: #0000ff;
+    border-radius: 0.2rem;
+}
+
+.dropdown-container:hover .drop{
+    width: fit-content;
+    transition: width 0.5s ease;
+    padding: 1rem;
+
+}
+
+.drop p a{
+    color: white;
+    text-decoration: none;
+    border: 0;
+}
+

@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- The above 4 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+
+    <!-- Title  -->
+    <title>Essence - Fashion Ecommerce Template</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" href="/img/core-img/favicon.ico">
+
+    <!-- Core Style CSS -->
+    <link rel="stylesheet" href="/css/core-style.css">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .error {
+            width: fit-content;
+            padding: 1%;
+            color: white;
+            background-color: red;
+            position: fixed;
+            top: 1%;
+            right: 0;
+            border-radius: 5px;
+            z-index: 999;
+        }
+
+        .messages {
+            width: fit-content;
+            padding: 1%;
+            color: white;
+            background-color: green;
+            position: fixed;
+            top: 1%;
+            right: 0;
+            border-radius: 5px;
+            z-index: 999;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ##### Header Area Start ##### -->
+    {{>header}}
+    <!-- ##### Header Area End ##### -->
+    <div>
+        <p class="error">{{error}}</p>
+        <p class="messages">{{message}}</p>
+    </div>
+    <!-- ##### Right Side Cart Area ##### -->
+    {{!-- {{>cart}} --}}
+    <!-- ##### Right Side Cart End ##### -->
+
+    <!-- ##### Breadcumb Area Start ##### -->
+    <div class="breadcumb_area bg-img" style="background-image: url(img/bg-img/breadcumb.jpg);">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <div class="page-title text-center">
+                        <h2>Post Product</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Breadcumb Area End ##### -->
+
+    <!-- ##### Checkout Area Start ##### -->
+    <div class="checkout_area section-padding-80">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-12">
+                    <div class="checkout_details_area mt-50 clearfix">
+                        <form action="/post" method="post" enctype="multipart/form-data">
+                            <div class="row">
+                                <div class="col-12 mb-3">
+                                    <label for="company">Product Name</label>
+                                    <input type="text" class="form-control" id="company" value="" name="name" required>
+                                </div>
+                                {{!-- <div class="col-12 mb-3">
+                                    <label for="country">Country <span>*</span></label>
+                                    <select class="w-100" id="country">
+                                        <option value="usa">United States</option>
+                                        <option value="uk">United Kingdom</option>
+                                        <option value="ger">Germany</option>
+                                        <option value="fra">France</option>
+                                        <option value="ind">India</option>
+                                        <option value="aus">Australia</option>
+                                        <option value="bra">Brazil</option>
+                                        <option value="cana">Canada</option>
+                                    </select>
+                                </div> --}}
+                                <div class="col-12 mb-3">
+                                    <label for="street_address">Description <span>*</span></label>
+                                    <textarea cols="30" rows="10" class="form-control mb-3" value="" name="description"
+                                        required></textarea>
+                                    {{!-- <input type="text" class="form-control" id="street_address2" value=""> --}}
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="postcode">Price <span>*</span></label>
+                                    <input type="number" class="form-control" id="postcode" name="price" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="city">Sizes <span>*</span></label>
+                                    <input type="text" class="form-control" id="city" name="sizes"
+                                        placeholder="XL, XXL, etc" required>
+                                </div>
+                                <div class="col-12 mb-3">
+                                    <label for="state">Colors <span>*</span></label>
+                                    <input type="text" class="form-control" id="state" name="colors"
+                                        placeholder="You can pass multiple colors like Balck, Yellow, Red etc" required>
+                                </div>
+                                <div class="col-12 mb-4">
+                                    <label for="email_address">Images <span>*</span></label>
+                                    <input type="file" class="form-control" name="images" id="email_address" value=""
+                                        accept=".jpeg, .png, .jpg, .JPEG, .JPG, .PNG" multiple required>
+                                </div>
+
+                                <button type="submit" class="btn essence-btn">Post Product</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                {{!-- <div class="col-12 col-md-6 col-lg-5 ml-lg-auto">
+                    <div class="order-details-confirmation">
+
+                        <div class="cart-page-heading">
+                            <h5>Your Order</h5>
+                            <p>The Details</p>
+                        </div>
+
+                        <ul class="order-details-form mb-4">
+                            <li><span>Product</span> <span>Total</span></li>
+                            <li><span>Cocktail Yellow dress</span> <span>$59.90</span></li>
+                            <li><span>Subtotal</span> <span>$59.90</span></li>
+                            <li><span>Shipping</span> <span>Free</span></li>
+                            <li><span>Total</span> <span>$59.90</span></li>
+                        </ul>
+
+                        <div id="accordion" role="tablist" class="mb-4">
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingOne">
+                                    <h6 class="mb-0">
+                                        <a data-toggle="collapse" href="#collapseOne" aria-expanded="false"
+                                            aria-controls="collapseOne"><i class="fa fa-circle-o mr-3"></i>Paypal</a>
+                                    </h6>
+                                </div>
+
+                                <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne"
+                                    data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin pharetra
+                                            tempor so dales. Phasellus sagittis auctor gravida. Integ er bibendum
+                                            sodales arcu id te mpus. Ut consectetur lacus.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingTwo">
+                                    <h6 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseTwo"
+                                            aria-expanded="false" aria-controls="collapseTwo"><i
+                                                class="fa fa-circle-o mr-3"></i>cash on delievery</a>
+                                    </h6>
+                                </div>
+                                <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo"
+                                    data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo quis in
+                                            veritatis officia inventore, tempore provident dignissimos.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingThree">
+                                    <h6 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseThree"
+                                            aria-expanded="false" aria-controls="collapseThree"><i
+                                                class="fa fa-circle-o mr-3"></i>credit card</a>
+                                    </h6>
+                                </div>
+                                <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree"
+                                    data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Esse quo sint
+                                            repudiandae suscipit ab soluta delectus voluptate, vero vitae</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" role="tab" id="headingFour">
+                                    <h6 class="mb-0">
+                                        <a class="collapsed" data-toggle="collapse" href="#collapseFour"
+                                            aria-expanded="true" aria-controls="collapseFour"><i
+                                                class="fa fa-circle-o mr-3"></i>direct bank transfer</a>
+                                    </h6>
+                                </div>
+                                <div id="collapseFour" class="collapse show" role="tabpanel"
+                                    aria-labelledby="headingThree" data-parent="#accordion">
+                                    <div class="card-body">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est cum autem
+                                            eveniet saepe fugit, impedit magni.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div> --}}
+            </div>
+        </div>
+    </div>
+    <!-- ##### Checkout Area End ##### -->
+
+    <!-- ##### Footer Area Start ##### -->
+    {{>footer}}
+    <!-- ##### Footer Area End ##### -->
+    <script>
+        const error = document.querySelector(".error")
+        const message = document.querySelector(".messages")
+        if (error.textContent.trim() === "") {
+            error.style.display = "none"
+        } else {
+            error.style.display = "block"
+            setTimeout(() => {
+                error.style.display = "none"
+            }, 2000)
+        }
+        if (message.textContent.trim() === "") {
+            message.style.display = "none"
+        } else {
+            message.style.display = "block"
+            setTimeout(() => {
+                message.style.display = "none"
+            }, 2000)
+        }
+    </script>
+    <!-- jQuery (Necessary for All JavaScript Plugins) -->
+    <script src="/js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="/js/popper.min.js"></script>
+    <!-- Bootstrap js -->
+    <script src="/js/bootstrap.min.js"></script>
+    <!-- Plugins js -->
+    <script src="/js/plugins.js"></script>
+    <!-- Classy Nav js -->
+    <script src="/js/classy-nav.min.js"></script>
+    <!-- Active js -->
+    <script src="/js/active.js"></script>
+
+</body>
+
+</html>
